@@ -1,5 +1,6 @@
 import speech_recognition as sr
 
+
 class SpeechRecognizer:
     def __init__(self):
         self.recognizer = sr.Recognizer()

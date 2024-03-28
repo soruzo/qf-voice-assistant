@@ -15,13 +15,8 @@ class AudioManager:
             os.makedirs('audio_files')
 
     def generate_audio(self, text, filename):
-        tts = gTTS(text=text, lang='en')
+        tts = gTTS(text=text, lang='pt-br')
         tts.save(f"audio_files/{filename}.mp3")
-
-    def generate_all_audio_files(self):
-        self.generate_audio("Welcome to QuantumFinance.", "greeting")
-        self.generate_audio("Please choose an option.", "options")
-        self.generate_audio("Option not identified.", "not_identified")
 
     def play_audio(self, filename):
         try:
@@ -32,14 +27,14 @@ class AudioManager:
         except Exception as e:
             print(f"Erro ao reproduzir o áudio: {e}")
 
-
     def generate_all_audio_files(self):
-        self.generate_audio("Welcome to QuantumFinance.", "greeting")
+        self.generate_audio("Seja bem vindo a Quantum Finance.", "greeting")
         self.generate_audio(
-            "Please choose an option: Check balance, International purchase simulation, Speak to an attendant, Exit.",
+            "Por favor, escolha uma opção: Consultar saldo da conta, Simular compra internacional, Falar com um "
+            "atendente, Encerrar o atendimento.",
             "options")
-        self.generate_audio("Option not identified.", "not_identified")
-        self.generate_audio("You chose to check your balance.", "balance")
-        self.generate_audio("You chose international purchase simulation.", "purchase")
-        self.generate_audio("You chose to speak to an attendant.", "attendant")
-        self.generate_audio("Exiting. Thank you for calling QuantumFinance.", "exit")
+        self.generate_audio("Opção não identificada.", "not_identified")
+        self.generate_audio("Você escolheu consultar saldo da conta.", "balance")
+        self.generate_audio("Você escolheu simular compra internacional", "purchase")
+        self.generate_audio("Você escolheu falar com um atendente.", "attendant")
+        self.generate_audio("Atendimento encerrado. Obrigado pela preferencia, Quantum Finance agradece.", "exit")
