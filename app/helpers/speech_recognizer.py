@@ -7,12 +7,15 @@ class SpeechRecognizer:
 
     def listen_and_recognize(self):
         with sr.Microphone() as source:
-            print("Listening...")
-            audio_data = self.recognizer.listen(source)
-            print("Recognizing...")
+            self.recognizer.adjust_for_ambient_noise(source, duration=1)
+            print("Ouvindo...")
+            audio_data = self.recognizer.listen(source, timeout=5, phrase_time_limit=5)
+            print("Reconhecendo...")
             try:
-                return self.recognizer.recognize_google(audio_data)
+                recognized_text = self.recognizer.recognize_google(audio_data, language="pt-BR")
+                print(f"Reconhecido: {recognized_text}")
+                return recognized_text
             except sr.UnknownValueError:
-                return "Sorry, I did not understand that."
+                return "Opção não identificada."
             except sr.RequestError:
-                return "Sorry, the service is down."
+                return "Serviço indisponível."

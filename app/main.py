@@ -11,13 +11,13 @@ def main():
         audio_manager.play_audio("options")
         user_choice = speech_recognizer.listen_and_recognize().lower()
 
-        if "balance" in user_choice:
+        if "saldo" in user_choice:
             audio_manager.play_audio("balance")
-        elif "purchase" in user_choice:
+        elif "compra" in user_choice:
             audio_manager.play_audio("purchase")
-        elif "attendant" in user_choice:
+        elif "atendente" in user_choice:
             audio_manager.play_audio("attendant")
-        elif "exit" in user_choice:
+        elif "sair" in user_choice:
             audio_manager.play_audio("exit")
             break
         else:

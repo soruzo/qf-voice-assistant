@@ -15,7 +15,7 @@ class AudioManager:
             os.makedirs('audio_files')
 
     def generate_audio(self, text, filename):
-        tts = gTTS(text=text, lang='pt-br')
+        tts = gTTS(text=text, lang='pt-BR')
         tts.save(f"audio_files/{filename}.mp3")
 
     def play_audio(self, filename):
@@ -30,8 +30,8 @@ class AudioManager:
     def generate_all_audio_files(self):
         self.generate_audio("Seja bem vindo a Quantum Finance.", "greeting")
         self.generate_audio(
-            "Por favor, escolha uma opção: Consultar saldo da conta, Simular compra internacional, Falar com um "
-            "atendente, Encerrar o atendimento.",
+            "Por favor, escolha uma opção: Consulta ao saldo da conta, Simulação de compra internacional, Falar com um"
+            "atendente, Sair do atendimento.",
             "options")
         self.generate_audio("Opção não identificada.", "not_identified")
         self.generate_audio("Você escolheu consultar saldo da conta.", "balance")
